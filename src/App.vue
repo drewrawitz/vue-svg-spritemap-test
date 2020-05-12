@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    TO TU:
     <SvgIcon icon="bike" />
   </div>
 </template>
