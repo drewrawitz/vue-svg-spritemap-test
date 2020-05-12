@@ -1,23 +1,11 @@
-const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
-const path = require('path');
-
 module.exports = {
-  configureWebpack: {
-    plugins: [
-      new SVGSpritemapPlugin(path.resolve(__dirname, 'src/assets/icons/*.svg'), {
-        output: {
-          filename: '../public/icon-sprite.svg',
-          svg4everybody: true,
-          svgo: {
-            removeTitle: true,
-            removeStyleElement: true,
-            cleanupNumericValue: true,
-          },
-        },
-        sprite: {
-          prefix: false,
-        },
-      }),
-    ],
-  },
-};
+  chainWebpack: config => {
+    const svgRule = config.module.rule('svg')
+
+    svgRule.uses.clear()
+
+    svgRule
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+  }
+}
