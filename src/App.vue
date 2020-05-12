@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <SvgIcon icon="bike" />
-  </div>
+    <SvgIcon icon="bike" @click="onClick" />
 </template>
 
 <script>
@@ -14,6 +12,12 @@ export default {
   components: {
     HelloWorld,
     SvgIcon,
+  },
+
+  methods: {
+    onClick() {
+      console.log('click');
+    }
   }
 }
 </script>
